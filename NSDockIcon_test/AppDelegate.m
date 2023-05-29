@@ -8,14 +8,44 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
+{
+  NSDockTile *_dockTile;
+  NSUInteger _value;
+}
 
 @property (strong) IBOutlet NSWindow *window;
+
 @end
 
 @implementation AppDelegate
 
+- (IBAction) up: (id)sender
+{
+  _value++;
+  NSNumber *n = [NSNumber numberWithUnsignedInteger: _value];
+  [_dockTile setBadgeLabel: [n stringValue]];
+}
+
+- (IBAction) down: (id)sender
+{
+  if (_value > 0)
+    {
+      _value--;
+      NSNumber *n = [NSNumber numberWithUnsignedInteger: _value];
+      [_dockTile setBadgeLabel: [n stringValue]];
+    }
+}
+
+- (IBAction) icon: (id)sender
+{
+  NSImage *image = [NSImage imageNamed: @"GNUstep"];
+  [NSApp setApplicationIconImage:image];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // Insert code here to initialize your application
+  _dockTile = [[NSDockTile alloc] init];
+  
 }
 
 
