@@ -38,7 +38,7 @@
 
 - (IBAction) icon: (id)sender
 {
-  NSImage *image = [NSImage imageNamed: @"GNUstep"];
+  NSImage *image = [NSImage imageNamed: @"Test"];
   [NSApp setApplicationIconImage:image];
 }
 
