@@ -14,6 +14,7 @@
 }
 
 @property (strong) IBOutlet NSWindow *window;
+@property (strong) IBOutlet NSButton *check;
 
 @end
 
@@ -42,10 +43,15 @@
   [NSApp setApplicationIconImage:image];
 }
 
+- (IBAction) view: (id)sender
+{
+  [_dockTile setContentView: self.check];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // Insert code here to initialize your application
   _dockTile = [[NSDockTile alloc] init];
-  
+  NSLog(@"owner = %@", [_dockTile owner]);
 }
 
 
