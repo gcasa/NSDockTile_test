@@ -51,6 +51,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // Insert code here to initialize your application
   _dockTile = [[NSDockTile alloc] init];
+  NSLog(@"view = %@", [_dockTile contentView]);
   NSLog(@"owner = %@", [_dockTile owner]);
 }
 
